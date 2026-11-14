@@ -1,0 +1,987 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f8f1e5" />
+    <meta
+      name="description"
+      content="Thiệp mời lễ tốt nghiệp của PHI tại UIT, ngày 26 tháng 11 năm 2026."
+    />
+    <title>Thiệp mời tốt nghiệp · PHI 2026</title>
+    <style>
+      :root {
+        --paper: #fffdf7;
+        --paper-deep: #f4ead8;
+        --uit-blue: #2f6bff;
+        --uit-blue-dark: #1c4fc8;
+        --gold: #bd8b2d;
+        --gold-light: #d9b45d;
+        --ink: #26374b;
+        --muted: #61748a;
+        --line: rgba(189, 139, 45, 0.75);
+        --serif: Cambria, "Times New Roman", Georgia, serif;
+        --sans: "Segoe UI", Tahoma, Arial, sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        padding: 20px;
+        color: var(--ink);
+        background: #eaf0f7;
+        font-family: var(--serif);
+        -webkit-font-smoothing: antialiased;
+      }
+      button,
+      textarea {
+        font: inherit;
+      }
+      .invitation {
+        position: relative;
+        width: min(100%, 1080px);
+        margin: 0 auto;
+        overflow: hidden;
+        background:
+          radial-gradient(
+            ellipse at 18% 7%,
+            rgba(255, 255, 255, 0.72),
+            transparent 35%
+          ),
+          radial-gradient(
+            ellipse at 84% 49%,
+            rgba(255, 255, 255, 0.35),
+            transparent 37%
+          ),
+          var(--paper);
+        border: 1px solid var(--gold);
+        box-shadow: 0 22px 62px rgba(55, 39, 26, 0.18);
+      }
+      .invitation::before {
+        position: absolute;
+        z-index: 3;
+        inset: 9px;
+        border: 1px solid rgba(189, 139, 45, 0.55);
+        content: "";
+        pointer-events: none;
+      }
+      .letterhead {
+        min-height: 235px;
+        padding: 30px 35px 23px;
+        text-align: center;
+        border-bottom: 1px solid var(--line);
+      }
+      .brand-line {
+        margin: 0 0 9px;
+        color: var(--uit-blue);
+        font: 800 9px/1.4 var(--sans);
+        letter-spacing: 0.22em;
+      }
+      .overline {
+        margin: 0 0 7px;
+        color: var(--gold);
+        font-size: clamp(13px, 2vw, 20px);
+        font-weight: 700;
+        letter-spacing: 0.24em;
+      }
+      h1 {
+        margin: 0;
+        color: var(--uit-blue);
+        font-size: clamp(48px, 8vw, 82px);
+        font-weight: 700;
+        letter-spacing: 0.035em;
+        line-height: 1;
+      }
+      .subtitle {
+        margin: 5px 0 0;
+        color: var(--uit-blue);
+        font-size: clamp(25px, 4vw, 39px);
+        font-style: italic;
+      }
+      .ornament {
+        display: flex;
+        width: min(370px, 75%);
+        align-items: center;
+        gap: 12px;
+        margin: 13px auto 0;
+        color: var(--gold);
+      }
+      .ornament::before,
+      .ornament::after {
+        height: 1px;
+        flex: 1;
+        background: var(--gold);
+        content: "";
+      }
+      .ornament span {
+        font-size: 20px;
+        line-height: 1;
+      }
+      .main-grid {
+        display: grid;
+        grid-template-columns: minmax(300px, 0.91fr) minmax(0, 1.09fr);
+        align-items: stretch;
+      }
+      .portrait {
+        position: relative;
+        display: flex;
+        min-height: 850px;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background:
+          radial-gradient(
+            ellipse at 50% 42%,
+            rgba(255, 255, 255, 0.92),
+            rgba(231, 239, 252, 0.66) 42%,
+            transparent 72%
+          ),
+          linear-gradient(155deg, #dce9ff, #fbf4e7 52%, #d8e5f7);
+        border-right: 1px solid rgba(189, 139, 45, 0.42);
+      }
+      .portrait::before,
+      .portrait::after {
+        position: absolute;
+        inset: 20px;
+        border: 1px solid rgba(189, 139, 45, 0.32);
+        content: "";
+        pointer-events: none;
+      }
+      .portrait::after {
+        inset: 27px;
+        border-color: rgba(255, 255, 255, 0.58);
+      }
+      .portrait-placeholder {
+        z-index: 1;
+        display: grid;
+        justify-items: center;
+        gap: 15px;
+        padding: 28px;
+        color: var(--uit-blue);
+        text-align: center;
+      }
+      .portrait-placeholder svg {
+        width: 148px;
+        max-width: 55%;
+        color: rgba(47, 107, 255, 0.84);
+        filter: drop-shadow(0 8px 8px rgba(36, 65, 110, 0.12));
+      }
+      .portrait-placeholder strong {
+        font-size: 13px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .portrait-placeholder small {
+        color: #796c5a;
+        font: 12px/1.7 var(--sans);
+      }
+      .details {
+        padding: 36px clamp(25px, 4vw, 46px) 37px;
+        text-align: center;
+      }
+      .recipient-label,
+      .detail-label {
+        margin: 0;
+        color: var(--uit-blue);
+        font-size: 18px;
+        letter-spacing: 0.1em;
+      }
+      .guest-name {
+        margin: 9px 0 0;
+        color: var(--uit-blue);
+        font-size: clamp(27px, 4vw, 39px);
+        font-style: italic;
+        font-weight: 700;
+        line-height: 1.15;
+        overflow-wrap: anywhere;
+      }
+      .star-rule {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        margin: 21px 0;
+        color: var(--gold);
+      }
+      .star-rule::before,
+      .star-rule::after {
+        height: 1px;
+        flex: 1;
+        background: var(--line);
+        content: "";
+      }
+      .star-rule span {
+        font-size: 13px;
+        letter-spacing: 0.38em;
+        white-space: nowrap;
+      }
+      .invitation-copy {
+        max-width: 450px;
+        margin: 0 auto;
+        font-size: clamp(17px, 2.2vw, 21px);
+        line-height: 1.65;
+      }
+      .invitation-copy strong {
+        color: var(--uit-blue);
+      }
+      .tiny-flower {
+        margin: 16px 0;
+        color: var(--gold);
+        font-size: 19px;
+      }
+      .time-box {
+        padding: 17px 14px 15px;
+        border: 1px solid var(--gold);
+        background: rgba(255, 255, 255, 0.24);
+      }
+      .time-box .detail-label,
+      .venue .detail-label {
+        font-size: 16px;
+        font-weight: 700;
+      }
+      .time-value {
+        display: block;
+        margin: 7px 0 3px;
+        color: var(--uit-blue);
+        font-size: clamp(30px, 5vw, 42px);
+        font-weight: 700;
+        line-height: 1.1;
+      }
+      .date-value {
+        font-size: clamp(15px, 2vw, 18px);
+        font-style: italic;
+        line-height: 1.55;
+      }
+      .venue {
+        margin-top: 24px;
+      }
+      .venue-name {
+        margin: 8px 0 3px;
+        color: var(--uit-blue);
+        font-size: clamp(20px, 3vw, 25px);
+        font-weight: 700;
+        line-height: 1.3;
+      }
+      .venue-school {
+        margin: 0;
+        font-size: 17px;
+        line-height: 1.5;
+      }
+      .map-link {
+        display: inline-block;
+        margin-top: 8px;
+        color: var(--uit-blue);
+        font: 700 11px var(--sans);
+        letter-spacing: 0.08em;
+        text-underline-offset: 3px;
+        text-transform: uppercase;
+      }
+      .thank-you {
+        margin: 0;
+        font-size: 16px;
+        font-style: italic;
+        line-height: 1.75;
+      }
+      .thank-you strong {
+        display: block;
+        margin-top: 5px;
+        color: var(--uit-blue);
+        font-size: 17px;
+      }
+      .rsvp {
+        margin-top: 18px;
+        padding-top: 16px;
+        border-top: 1px solid var(--line);
+      }
+      .rsvp-title {
+        margin: 0 0 12px;
+        color: var(--uit-blue);
+        font-size: 20px;
+        font-weight: 700;
+      }
+      .choices {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 9px;
+      }
+      .choice {
+        position: relative;
+      }
+      .choice input {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+      }
+      .choice span {
+        display: grid;
+        min-height: 43px;
+        place-items: center;
+        padding: 8px;
+        border: 1px solid rgba(189, 139, 45, 0.62);
+        color: var(--ink);
+        background: rgba(255, 255, 255, 0.35);
+        cursor: pointer;
+        font: 700 11px/1.4 var(--sans);
+        transition:
+          background 0.18s,
+          color 0.18s;
+      }
+      .choice input:checked + span {
+        color: white;
+        background: var(--uit-blue);
+        border-color: var(--uit-blue);
+      }
+      .choice input:focus-visible + span {
+        outline: 3px solid rgba(189, 139, 45, 0.5);
+        outline-offset: 2px;
+      }
+      textarea {
+        width: 100%;
+        min-height: 57px;
+        margin-top: 9px;
+        padding: 10px 12px;
+        resize: vertical;
+        border: 1px solid rgba(189, 139, 45, 0.55);
+        border-radius: 0;
+        color: var(--ink);
+        background: rgba(255, 255, 255, 0.34);
+        font: 12px/1.5 var(--sans);
+      }
+      textarea::placeholder {
+        color: #8a7b6b;
+      }
+      textarea:focus {
+        outline: 2px solid rgba(47, 107, 255, 0.22);
+        border-color: var(--uit-blue);
+      }
+      .send-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+        margin-top: 9px;
+      }
+      .send-button {
+        min-height: 40px;
+        padding: 0 16px;
+        border: 0;
+        color: white;
+        background: var(--uit-blue);
+        cursor: pointer;
+        font: 700 10px var(--sans);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .send-button:hover {
+        background: var(--uit-blue-dark);
+      }
+      .form-status {
+        flex: 1;
+        min-width: 130px;
+        margin: 0;
+        color: #566349;
+        font: 11px/1.5 var(--sans);
+        text-align: left;
+      }
+      .form-status.error {
+        color: #a62d35;
+      }
+      .preview-note {
+        margin: 7px 0 0;
+        color: #887c6e;
+        font: 10px/1.5 var(--sans);
+        text-align: left;
+      }
+      .honeypot {
+        position: absolute;
+        left: -10000px;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+      .send-button:disabled {
+        cursor: wait;
+        opacity: 0.7;
+      }
+      .contact-strip {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+        padding: 19px clamp(22px, 5vw, 52px);
+        border-top: 1px solid var(--line);
+        background: rgba(231, 239, 252, 0.52);
+      }
+      .contact-label {
+        display: block;
+        margin-bottom: 7px;
+        color: var(--gold);
+        font: 800 9px/1.4 var(--sans);
+        letter-spacing: 0.18em;
+      }
+      .contact-copy {
+        margin: 0;
+        color: var(--ink);
+        font-size: 13px;
+        line-height: 1.7;
+      }
+      .contact-copy a {
+        color: var(--uit-blue-dark);
+        font-weight: 700;
+        text-decoration-color: rgba(47, 107, 255, 0.45);
+        text-underline-offset: 3px;
+      }
+      .contact-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px 18px;
+      }
+      .footer-band {
+        position: relative;
+        min-height: 58px;
+        display: grid;
+        place-items: center;
+        padding: 14px 50px;
+        color: #fff4df;
+        background: var(--uit-blue);
+        font-size: 12px;
+        letter-spacing: 0.2em;
+        text-align: center;
+      }
+      .footer-band span {
+        color: var(--gold-light);
+      }
+      @media (max-width: 760px) {
+        body {
+          padding: 10px;
+        }
+        .invitation::before {
+          inset: 6px;
+        }
+        .letterhead {
+          min-height: auto;
+          padding: 30px 16px 18px;
+        }
+        .brand-line {
+          gap: 7px;
+          padding-right: 10px;
+          font-size: 8px;
+          letter-spacing: 0.14em;
+        }
+        .brand-symbol {
+          width: 36px;
+          height: 28px;
+        }
+        .brand-symbol img {
+          width: 36px;
+        }
+        .overline {
+          font-size: 11px;
+          letter-spacing: 0.16em;
+        }
+        h1 {
+          font-size: clamp(43px, 12vw, 68px);
+        }
+        .subtitle {
+          font-size: clamp(24px, 7vw, 34px);
+        }
+        .main-grid {
+          grid-template-columns: 1fr;
+        }
+        .portrait {
+          min-height: 0;
+          aspect-ratio: 4 / 3;
+          border-right: 0;
+          border-bottom: 1px solid rgba(189, 139, 45, 0.42);
+        }
+        .portrait-placeholder svg {
+          width: 110px;
+        }
+        .details {
+          padding: 28px 22px 30px;
+        }
+        .recipient-label {
+          font-size: 15px;
+        }
+        .guest-name {
+          font-size: 30px;
+        }
+        .invitation-copy {
+          font-size: 18px;
+        }
+        .footer-band {
+          min-height: 52px;
+          font-size: 9px;
+          letter-spacing: 0.12em;
+        }
+        .contact-strip {
+          grid-template-columns: 1fr;
+          gap: 13px;
+          padding: 17px 24px;
+        }
+      }
+      @media (max-width: 390px) {
+        .details {
+          padding-inline: 17px;
+        }
+        .choices {
+          grid-template-columns: 1fr;
+        }
+        .choice span {
+          min-height: 39px;
+        }
+        .star-rule {
+          gap: 7px;
+        }
+        .star-rule span {
+          letter-spacing: 0.2em;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        *,
+        *::before,
+        *::after {
+          transition-duration: 0.01ms !important;
+        }
+      }
+
+      /* Finishing touches: softer paper, clearer hierarchy and tactile controls. */
+      body {
+        background:
+          radial-gradient(ellipse at 12% 8%, #fff 0, transparent 28rem),
+          linear-gradient(145deg, #e5edf8, #f1eee6 58%, #e4ebf5);
+      }
+      .invitation {
+        border-color: rgba(47, 107, 255, 0.48);
+        border-radius: 11px;
+        box-shadow:
+          0 32px 75px rgba(35, 55, 82, 0.18),
+          0 5px 15px rgba(35, 55, 82, 0.07);
+      }
+      .invitation::before {
+        inset: 11px;
+        border-color: rgba(47, 107, 255, 0.2);
+        border-radius: 6px;
+      }
+      .letterhead {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.9),
+          rgba(255, 253, 247, 0.45)
+        );
+      }
+      .brand-line {
+        display: inline-flex;
+        width: fit-content;
+        align-items: center;
+        gap: 9px;
+        padding: 4px 13px 4px 5px;
+        border: 1px solid #d7e4f8;
+        border-radius: 999px;
+        background: rgba(238, 245, 255, 0.8);
+      }
+      .brand-symbol {
+        position: relative;
+        display: block;
+        width: 42px;
+        height: 32px;
+        flex: none;
+        overflow: hidden;
+      }
+      .brand-symbol img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 42px;
+        height: auto;
+        max-width: none;
+      }
+      .portrait {
+        background:
+          radial-gradient(
+            ellipse at 50% 42%,
+            rgba(255, 255, 255, 0.96),
+            rgba(232, 240, 253, 0.7) 44%,
+            transparent 72%
+          ),
+          linear-gradient(145deg, #dce9ff, #fbf5e9 54%, #d6e3f7);
+      }
+      .portrait-placeholder {
+        position: relative;
+        isolation: isolate;
+      }
+      .portrait-placeholder::before {
+        position: absolute;
+        z-index: -1;
+        width: 250px;
+        max-width: 72vw;
+        aspect-ratio: 1;
+        border: 1px solid rgba(47, 107, 255, 0.2);
+        border-radius: 50%;
+        box-shadow:
+          0 0 0 13px rgba(255, 255, 255, 0.24),
+          0 0 0 28px rgba(47, 107, 255, 0.045);
+        content: "";
+      }
+      .portrait-placeholder svg {
+        width: 158px;
+      }
+      .portrait-placeholder strong {
+        padding: 7px 12px;
+        border: 1px solid rgba(189, 139, 45, 0.44);
+        background: rgba(255, 253, 247, 0.72);
+      }
+      .details {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.28),
+          rgba(247, 250, 255, 0.33)
+        );
+      }
+      .guest-name {
+        width: fit-content;
+        max-width: 100%;
+        margin-inline: auto;
+        padding: 7px 16px;
+        border-radius: 5px;
+        background: #edf4ff;
+        box-shadow: inset 0 -2px rgba(47, 107, 255, 0.13);
+      }
+      .time-box {
+        border-radius: 7px;
+        background: linear-gradient(135deg, #edf4ff, #fffdf7 72%);
+        box-shadow: 0 8px 22px rgba(42, 75, 125, 0.075);
+      }
+      .time-value {
+        text-shadow: 0 2px rgba(47, 107, 255, 0.08);
+      }
+      .map-link {
+        padding: 7px 11px;
+        border: 1px solid rgba(47, 107, 255, 0.22);
+        border-radius: 999px;
+        background: #f0f5fd;
+        text-decoration: none;
+        transition:
+          background 0.18s,
+          border-color 0.18s;
+      }
+      .map-link:hover {
+        border-color: var(--uit-blue);
+        background: #e5efff;
+      }
+      .rsvp {
+        padding: 16px;
+        border: 1px solid #e0e9f6;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.58);
+        box-shadow: 0 8px 22px rgba(42, 75, 125, 0.06);
+      }
+      .choice span {
+        border-radius: 5px;
+        transition:
+          transform 0.18s,
+          background 0.18s,
+          color 0.18s,
+          border-color 0.18s;
+      }
+      .choice span:hover {
+        transform: translateY(-1px);
+        border-color: var(--uit-blue);
+      }
+      .send-button {
+        border-radius: 5px;
+        box-shadow: 0 4px 10px rgba(28, 79, 200, 0.18);
+        transition:
+          transform 0.18s,
+          background 0.18s,
+          box-shadow 0.18s;
+      }
+      .send-button:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 7px 15px rgba(28, 79, 200, 0.23);
+      }
+      .contact-strip {
+        border-top-color: #dce6f4;
+        background: linear-gradient(100deg, #f2f6fc, #fbf8f0);
+      }
+      .contact-label {
+        color: var(--uit-blue-dark);
+      }
+      .footer-band {
+        background: linear-gradient(100deg, #1c4fc8, #2f6bff 55%, #2457d8);
+      }
+      @media (max-width: 760px) {
+        .invitation {
+          border-radius: 8px;
+        }
+        .invitation::before {
+          inset: 7px;
+        }
+        .details {
+          background: rgba(255, 255, 255, 0.2);
+        }
+        .portrait-placeholder::before {
+          width: 190px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="invitation">
+      <header class="letterhead">
+        <div class="brand-line">
+          <span class="brand-symbol" aria-hidden="true"
+            ><img src="assets/uit-logo.png" alt=""
+          /></span>
+          <span>UIT · ĐHQG-HCM</span>
+        </div>
+        <p class="overline">Trân trọng kính mời</p>
+        <h1>THIỆP MỜI</h1>
+        <p class="subtitle">Lễ Tốt Nghiệp</p>
+        <div class="ornament" aria-hidden="true"><span>✦</span></div>
+      </header>
+
+      <div class="main-grid">
+        <section class="portrait" aria-label="Vị trí ảnh tốt nghiệp của PHI">
+          <div class="portrait-placeholder">
+            <svg viewBox="0 0 180 210" fill="none" aria-hidden="true">
+              <path
+                d="M90 18 25 48l65 30 65-30-65-30Z"
+                fill="currentColor"
+                opacity=".88"
+              />
+              <path
+                d="M48 59v31c23 16 61 16 84 0V59L90 80 48 59Z"
+                fill="currentColor"
+              />
+              <path
+                d="M151 51v42"
+                stroke="#bd8b2d"
+                stroke-width="4"
+                stroke-linecap="round"
+              />
+              <circle cx="151" cy="98" r="6" fill="#bd8b2d" />
+              <circle cx="90" cy="110" r="31" fill="#e8cfaa" />
+              <path
+                d="M34 193c3-38 25-60 56-60s53 22 56 60"
+                fill="#2f6bff"
+                opacity=".82"
+              />
+              <path
+                d="M61 137 90 166l29-29M90 166v28"
+                stroke="#f5dfb4"
+                stroke-width="3"
+              />
+            </svg>
+            <strong>Ảnh tốt nghiệp của PHI</strong>
+          </div>
+        </section>
+
+        <section class="details" aria-label="Thông tin lời mời">
+          <p class="recipient-label">THÂN GỬI</p>
+          <p class="guest-name" id="guest-name">[Tên khách mời]</p>
+          <div class="star-rule" aria-hidden="true"><span>✦ ✦ ✦</span></div>
+          <p class="invitation-copy">
+            Đến tham dự <strong>Lễ Tốt Nghiệp</strong> nhằm đánh dấu cột mốc
+            quan trọng sau chặng đường học tập.
+          </p>
+          <div class="tiny-flower" aria-hidden="true">✦ ◈ ✦</div>
+
+          <div class="time-box">
+            <p class="detail-label">
+              <span aria-hidden="true">✦ &nbsp;</span>THỜI GIAN<span
+                aria-hidden="true"
+                >&nbsp; ✦</span
+              >
+            </p>
+            <strong class="time-value">15:00</strong>
+            <span class="date-value">Thứ Năm, ngày 26 tháng 11 năm 2026</span>
+          </div>
+
+          <div class="venue">
+            <p class="detail-label">
+              <span aria-hidden="true">✦ &nbsp;</span>ĐỊA ĐIỂM<span
+                aria-hidden="true"
+                >&nbsp; ✦</span
+              >
+            </p>
+            <p class="venue-name">Cổng A · UIT</p>
+            <p class="venue-school">Trường Đại học Công nghệ Thông tin</p>
+            <a
+              class="map-link"
+              href="https://maps.google.com/?q=C%E1%BB%95ng+A+UIT"
+              target="_blank"
+              rel="noreferrer"
+              >Xem bản đồ ↗</a
+            >
+          </div>
+
+          <div class="star-rule" aria-hidden="true"><span>✦ ✦ ✦</span></div>
+          <p class="thank-you">
+            Sự hiện diện của bạn sẽ là niềm vui và nguồn động viên lớn đối với
+            mình.<strong>Rất mong được đón tiếp bạn!</strong>
+          </p>
+
+          <form class="rsvp" id="rsvp-form">
+            <p class="rsvp-title">✦ &nbsp; Bạn sẽ tham dự chứ? &nbsp; ✦</p>
+            <div class="choices">
+              <label class="choice"
+                ><input
+                  type="radio"
+                  name="attendance"
+                  value="yes"
+                  required
+                /><span>Mình sẽ đến</span></label
+              >
+              <label class="choice"
+                ><input type="radio" name="attendance" value="no" /><span
+                  >Mình không đi được</span
+                ></label
+              >
+            </div>
+            <label class="honeypot" aria-hidden="true">
+              Website
+              <input
+                type="text"
+                name="company"
+                tabindex="-1"
+                autocomplete="off"
+              />
+            </label>
+            <textarea
+              name="message"
+              aria-label="Lời nhắn cho PHI"
+              placeholder="Lời nhắn cho PHI (không bắt buộc)"
+              maxlength="1000"
+            ></textarea>
+            <div class="send-row">
+              <button class="send-button" type="submit">Gửi phản hồi</button>
+              <p
+                class="form-status"
+                id="form-status"
+                role="status"
+                aria-live="polite"
+              ></p>
+            </div>
+            <p class="preview-note">
+              Bản xem trước: phản hồi chưa được gửi vào Google Sheet.
+            </p>
+          </form>
+        </section>
+      </div>
+
+      <section class="contact-strip" aria-label="Địa chỉ và liên hệ">
+        <div>
+          <span class="contact-label">ĐỊA CHỈ</span>
+          <p class="contact-copy">
+            Cổng A, Trường Đại học Công nghệ Thông tin<br />ĐHQG-HCM
+          </p>
+        </div>
+        <div>
+          <span class="contact-label">LIÊN HỆ</span>
+          <p class="contact-copy contact-links">
+            <a href="tel:+84911695408">Gặp PHI · 0911695408</a>
+            <a href="tel:+84343411005">Gặp Mai · 0343411005</a>
+          </p>
+        </div>
+      </section>
+
+      <footer class="footer-band">
+        ĐẠI HỌC CÔNG NGHỆ THÔNG TIN <span>✦</span> LỄ TỐT NGHIỆP 2026
+      </footer>
+    </main>
+    <script>
+      (() => {
+        // Paste the deployed Apps Script Web App URL here when the Sheet is ready.
+        const RSVP_ENDPOINT =
+          "https://script.google.com/macros/s/AKfycbz65rAtGk0bxOA_7KruUJzU4YegeZWRJYGfLTAx_jzNUSQtva5U6mUjrEydHOPRaBc_Ww/exec";
+        const pathParts = window.location.pathname.split("/").filter(Boolean);
+        let pathPart = pathParts.pop() || "";
+        if (
+          ["graduation-invitation", "index.html", "404.html"].includes(
+            pathPart.toLowerCase(),
+          )
+        )
+          pathPart = "";
+        const requestedGuest =
+          new URLSearchParams(window.location.search).get("to") || pathPart;
+        let guest = "";
+        try {
+          guest = decodeURIComponent(requestedGuest);
+        } catch {
+          guest = requestedGuest;
+        }
+        if (guest && !guest.includes(".")) {
+          guest = guest.replace(/[-_]+/g, " ").replace(/\s+/g, " ").trim();
+          document.getElementById("guest-name").textContent = guest;
+        }
+
+        const form = document.getElementById("rsvp-form");
+        const status = document.getElementById("form-status");
+        const previewNote = form.querySelector(".preview-note");
+        const submitButton = form.querySelector(".send-button");
+        if (RSVP_ENDPOINT.trim()) previewNote.hidden = true;
+
+        form.addEventListener("submit", async (event) => {
+          event.preventDefault();
+          status.classList.remove("error");
+          const formData = new FormData(form);
+          const answer = formData.get("attendance");
+          if (!answer) {
+            status.textContent = "Bạn chọn giúp PHI một câu trả lời nhé.";
+            status.classList.add("error");
+            return;
+          }
+          if (!RSVP_ENDPOINT.trim()) {
+            status.textContent = `Bản xem trước: ${guest || "bạn"} đã chọn phản hồi, nhưng chưa gửi lên Sheet.`;
+            return;
+          }
+          if (
+            !/^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec(?:\?.*)?$/.test(
+              RSVP_ENDPOINT.trim(),
+            )
+          ) {
+            status.textContent =
+              "URL Apps Script chưa đúng định dạng. Hãy kiểm tra đường dẫn /exec.";
+            status.classList.add("error");
+            return;
+          }
+
+          const payload = {
+            guest: guest || "Khách mời",
+            attendance: String(answer),
+            message: String(formData.get("message") || ""),
+            company: String(formData.get("company") || ""),
+            pageUrl: window.location.href,
+          };
+          submitButton.disabled = true;
+          status.textContent = "Đang gửi phản hồi…";
+          try {
+            await fetch(RSVP_ENDPOINT.trim(), {
+              method: "POST",
+              mode: "no-cors",
+              cache: "no-store",
+              headers: { "Content-Type": "text/plain;charset=UTF-8" },
+              body: JSON.stringify(payload),
+            });
+            status.textContent = `Cảm ơn ${guest || "bạn"}! Yêu cầu đã gửi đi; hãy kiểm tra tab RSVP để xác nhận đã lưu.`;
+            form.reset();
+          } catch {
+            status.textContent =
+              "Chưa gửi được phản hồi. Bạn kiểm tra mạng rồi thử lại nhé.";
+            status.classList.add("error");
+          } finally {
+            submitButton.disabled = false;
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
