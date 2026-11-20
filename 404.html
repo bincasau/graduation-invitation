@@ -128,56 +128,34 @@
       }
       .portrait {
         position: relative;
-        display: flex;
-        min-height: 850px;
-        align-items: center;
-        justify-content: center;
+        display: block;
+        align-self: start;
+        width: 100%;
+        aspect-ratio: 2 / 3;
         overflow: hidden;
-        background:
-          radial-gradient(
-            ellipse at 50% 42%,
-            rgba(255, 255, 255, 0.92),
-            rgba(231, 239, 252, 0.66) 42%,
-            transparent 72%
-          ),
-          linear-gradient(155deg, #dce9ff, #fbf4e7 52%, #d8e5f7);
         border-right: 1px solid rgba(189, 139, 45, 0.42);
       }
       .portrait::before,
       .portrait::after {
         position: absolute;
+        z-index: 1;
         inset: 20px;
         border: 1px solid rgba(189, 139, 45, 0.32);
         content: "";
         pointer-events: none;
       }
       .portrait::after {
+        z-index: 2;
         inset: 27px;
         border-color: rgba(255, 255, 255, 0.58);
       }
-      .portrait-placeholder {
-        z-index: 1;
-        display: grid;
-        justify-items: center;
-        gap: 15px;
-        padding: 28px;
-        color: var(--uit-blue);
-        text-align: center;
-      }
-      .portrait-placeholder svg {
-        width: 148px;
-        max-width: 55%;
-        color: rgba(47, 107, 255, 0.84);
-        filter: drop-shadow(0 8px 8px rgba(36, 65, 110, 0.12));
-      }
-      .portrait-placeholder strong {
-        font-size: 13px;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-      }
-      .portrait-placeholder small {
-        color: #796c5a;
-        font: 12px/1.7 var(--sans);
+      .portrait img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
       }
       .details {
         padding: 36px clamp(25px, 4vw, 46px) 37px;
@@ -492,13 +470,9 @@
           grid-template-columns: 1fr;
         }
         .portrait {
-          min-height: 0;
-          aspect-ratio: 4 / 3;
+          aspect-ratio: 2 / 3;
           border-right: 0;
           border-bottom: 1px solid rgba(189, 139, 45, 0.42);
-        }
-        .portrait-placeholder svg {
-          width: 110px;
         }
         .details {
           padding: 28px 22px 30px;
@@ -603,41 +577,6 @@
         height: auto;
         max-width: none;
       }
-      .portrait {
-        background:
-          radial-gradient(
-            ellipse at 50% 42%,
-            rgba(255, 255, 255, 0.96),
-            rgba(232, 240, 253, 0.7) 44%,
-            transparent 72%
-          ),
-          linear-gradient(145deg, #dce9ff, #fbf5e9 54%, #d6e3f7);
-      }
-      .portrait-placeholder {
-        position: relative;
-        isolation: isolate;
-      }
-      .portrait-placeholder::before {
-        position: absolute;
-        z-index: -1;
-        width: 250px;
-        max-width: 72vw;
-        aspect-ratio: 1;
-        border: 1px solid rgba(47, 107, 255, 0.2);
-        border-radius: 50%;
-        box-shadow:
-          0 0 0 13px rgba(255, 255, 255, 0.24),
-          0 0 0 28px rgba(47, 107, 255, 0.045);
-        content: "";
-      }
-      .portrait-placeholder svg {
-        width: 158px;
-      }
-      .portrait-placeholder strong {
-        padding: 7px 12px;
-        border: 1px solid rgba(189, 139, 45, 0.44);
-        background: rgba(255, 253, 247, 0.72);
-      }
       .details {
         background: linear-gradient(
           180deg,
@@ -727,9 +666,6 @@
         .details {
           background: rgba(255, 255, 255, 0.2);
         }
-        .portrait-placeholder::before {
-          width: 190px;
-        }
       }
     </style>
   </head>
@@ -749,39 +685,11 @@
       </header>
 
       <div class="main-grid">
-        <section class="portrait" aria-label="Vị trí ảnh tốt nghiệp của PHI">
-          <div class="portrait-placeholder">
-            <svg viewBox="0 0 180 210" fill="none" aria-hidden="true">
-              <path
-                d="M90 18 25 48l65 30 65-30-65-30Z"
-                fill="currentColor"
-                opacity=".88"
-              />
-              <path
-                d="M48 59v31c23 16 61 16 84 0V59L90 80 48 59Z"
-                fill="currentColor"
-              />
-              <path
-                d="M151 51v42"
-                stroke="#bd8b2d"
-                stroke-width="4"
-                stroke-linecap="round"
-              />
-              <circle cx="151" cy="98" r="6" fill="#bd8b2d" />
-              <circle cx="90" cy="110" r="31" fill="#e8cfaa" />
-              <path
-                d="M34 193c3-38 25-60 56-60s53 22 56 60"
-                fill="#2f6bff"
-                opacity=".82"
-              />
-              <path
-                d="M61 137 90 166l29-29M90 166v28"
-                stroke="#f5dfb4"
-                stroke-width="3"
-              />
-            </svg>
-            <strong>Ảnh tốt nghiệp của PHI</strong>
-          </div>
+        <section class="portrait" aria-label="Ảnh tốt nghiệp của PHI">
+          <img
+            src="assets/phi-graduation.jpg"
+            alt="PHI mặc lễ phục tốt nghiệp, cầm huy chương và bằng đại học"
+          />
         </section>
 
         <section class="details" aria-label="Thông tin lời mời">
@@ -971,7 +879,7 @@
               headers: { "Content-Type": "text/plain;charset=UTF-8" },
               body: JSON.stringify(payload),
             });
-            status.textContent = `Cảm ơn ${guest || "bạn"}! Yêu cầu đã gửi đi; hãy kiểm tra tab RSVP để xác nhận đã lưu.`;
+            status.textContent = `PHI đã nhận được phản hồi của ${guest || "bạn"} rồi. Cảm ơn bạn nhiều nhé!`;
             form.reset();
           } catch {
             status.textContent =
